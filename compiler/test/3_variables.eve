@@ -1,0 +1,8 @@
+import io.stdout
+
+main: [+stdout] () void:
+	a: string = "Hello"
+	b: int@ = 1
+	c: string = a + b
+	
+	stdout.write(c)

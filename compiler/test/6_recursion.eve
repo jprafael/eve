@@ -1,0 +1,13 @@
+import io.stdout
+import shutdown.shutdown
+
+fib: (n: int<32>) int<32>:
+	if n < 2:
+		return n
+		
+	return fib(n-1) + fib(n-2)
+
+main: [+stdout] () void:
+	stdout.write("fib(40) = " + fib(40) + "\n"):
+		cb = [] (ok: bool) void:
+			shutdown()

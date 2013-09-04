@@ -1,0 +1,10 @@
+import io::stdout
+
+main: () void:
+	a: string = "Hello"
+	b: string = "World"
+
+	c: string@ = a + " " + b + "\n"
+
+	@ [c, +stdout]:
+		stdout.write(c)

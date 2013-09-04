@@ -1,0 +1,19 @@
+import io.stdout
+import io.socket
+import io.server_socket
+import io.readable
+import io.listening
+import io.connection
+import io.closed
+
+main: () void:
+	server_socket.listen("8080"):
+		start = [+stdout] (s: listening&) bool:
+			stdout.write("Listening on port 8080\n")
+			return true
+
+		conn = [] (c: connection&) bool:
+			client: socket@ = c()
+			client.pipe(client)
+
+			return true

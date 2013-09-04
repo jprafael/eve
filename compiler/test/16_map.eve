@@ -1,0 +1,34 @@
+import io.stdout
+import shutdown.shutdown
+
+map: <class X, class Y> (x: vector<X>&, f: <(Y) X& >&) vector<Y>:
+	y: vector<Y>(x.size())
+
+	i: int
+	for (i = 0; i < x.size(); i++):
+		y[i] = f(x[i])
+
+	return y
+
+#map: <class X, class Y> (x, f):
+#	y: vector<Y>(x.size())
+#
+#	i: int
+#	for (i = 0; i < x.size(); i++):
+#		y[i] = f(x[i])
+#
+#	return y
+
+
+main: [+stdout] () void:
+	x: vector<int<32>>
+	i: int<32>
+
+	for (i = 0; i < 10; i++):
+		x.push_back(i)
+
+	y : vector<float<32> > = map(x, [] (x: int<32>&) float<32> : x**2)
+
+	stdout.write("f(3) = " + y[3] + "\n"):
+		cb = [] (ok: bool) void:
+			shutdown()

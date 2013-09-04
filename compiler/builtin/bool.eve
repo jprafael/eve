@@ -1,0 +1,43 @@
+builtin type bool:
+	builtin constructor: (self): # empty constructor
+		pass
+
+	builtin constructor: (self, other: bool):
+		pass
+
+	builtin !: (self) bool:
+		pass
+
+	builtin &&: (self, other: bool) bool:
+		pass
+
+	builtin ||: (self, other: bool) bool:
+		pass
+
+	builtin &: (self, other: bool) bool:
+		pass
+
+	builtin |: (self, other: bool) bool:
+		pass
+
+	builtin ^: (self, other: bool) bool:
+		pass
+
+	# assign operators
+	builtin =: (self, other: bool) bool:
+		pass
+
+	builtin &&=: (self, other: bool) bool:
+		pass
+
+	builtin ||=: (self, other: bool) bool:
+		pass
+
+	builtin &=: (self, other: bool) bool:
+		pass
+
+	builtin |=: (self, other: bool) bool:
+		pass
+
+	builtin ^=: (self, other: bool) bool:
+		pass

@@ -1,0 +1,41 @@
+builtin type itimerspec:
+	pass
+
+builtin type timer:
+	builtin timeout: (s: int<32>, ms: int<32>) itimerspec:
+		pass
+
+	builtin interval: (s: int<32>, ms: int<32>) itimerspec:
+		pass
+
+	builtin make: (t: itimerspec, cb: function<void>@) timer@:
+		pass
+
+builtin type iterator<type E>:
+	builtin constructor: (self):
+		pass
+
+	builtin ++: (self) iterator<E>:
+		pass
+
+	builtin !=: (self, other: iterator<E>) bool:
+		pass
+		
+	builtin *: (self) E:
+		pass
+
+builtin type set<type E>:
+	builtin constructor: (self):
+		pass
+
+	builtin insert: (self, object: E) void:
+		pass
+
+	builtin erase: (self, object: E) void:
+		pass
+
+	builtin begin: (self) iterator<E>:
+		pass
+
+	builtin end: (self) iterator<E>:
+		pass

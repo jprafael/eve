@@ -1,0 +1,9 @@
+import io.stdout
+import shutdown.shutdown
+
+main: [+stdout] () void:
+	finish:
+		@ [+stdout]: stdout.write("A\n")
+		@ [+stdout]: stdout.write("B\n")
+
+	stdout.write("DONE\n")

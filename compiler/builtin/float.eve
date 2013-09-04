@@ -1,0 +1,21 @@
+builtin type float<var B = 32>:
+	builtin constructor: (self, other: float<B>):
+		pass
+
+	builtin constructor: (self, other: int<B>):
+		pass
+
+	builtin =: (self, other: float<B>) float<B>:
+		pass
+
+	builtin +: (self, other: float<B>) float<B>:
+		pass
+
+	builtin -: (self, other: float<B>) float<B>:
+		pass
+
+	builtin *: (self, other: float<B>) float<B>:
+		pass
+
+	builtin /: (self, other: float<B>) float<B>:
+		pass

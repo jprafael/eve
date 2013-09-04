@@ -1,0 +1,34 @@
+import io.stdout
+import io.socket
+import io.server_socket
+import io.readable
+import io.listening
+import io.connection
+import io.closed
+import crypto.md5
+
+def void main():
+	server_socket.listen("8080"):
+		start = [+stdout] bool (listening& s):
+			stdout.write("Listening on port 8080\n")
+			return true
+
+		conn = [] bool (connection& c):
+			var socket@ client = c()
+			var vector<char>@ buffer(0)
+
+			on client readable = [-client] bool(readable& r):
+				var vector<char> temp(1024)
+				client.read_buffer(temp)
+				append(buffer, temp)
+
+				if buffer[buffer.size() - 1] == '\n':
+					client.write(md5(buffer))
+					buffer = ""
+
+				client.rearm()
+				return true
+
+			client.rearm()
+			return true
+

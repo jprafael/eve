@@ -1,0 +1,48 @@
+builtin type int<var B = 32>:
+	builtin constructor: (self):
+		pass
+
+	builtin constructor: (self, other: int<B>):
+		pass
+
+	builtin =: (self, other: int<B>) int<B>:
+		pass
+
+	builtin +: (self, other: int<B>) int<B>:
+		pass
+
+	builtin -: (self, other: int<B>) int<B>:
+		pass
+
+	builtin *: (self, other: int<B>) int<B>:
+		pass
+
+	builtin /: (self, other: int<B>) int<B>:
+		pass
+
+	builtin **: (self, other: int<B>) int<B>:
+		pass
+
+	builtin ++: (self) int<B>:
+		pass
+
+	builtin <: (self, other: int<B>) bool:
+		pass
+
+	builtin >: (self, other: int<B>) bool:
+		pass
+
+	builtin <=: (self, other: int<B>) bool:
+		pass
+
+	builtin >=: (self, other: int<B>) bool:
+		pass
+
+	builtin ==: (self, other: int<B>) bool:
+		pass
+
+#	builtin float<T> operator * <var T> (self, float<T> other):
+#		pass 
+
+	builtin *: (self, other: float<32>) float<32>:
+		pass 

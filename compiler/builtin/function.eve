@@ -1,0 +1,6 @@
+builtin type function<type R, type A ...>:
+	builtin constructor: (f: function<R, A ...>):
+		pass
+
+	builtin (): (self, args: A ...) R:
+		pass

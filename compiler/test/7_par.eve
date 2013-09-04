@@ -1,0 +1,17 @@
+import io.stdout
+
+fib: (n: int<32>) int<32>:
+	if n < 2:
+		return n
+		
+	return fib(n-1) + fib(n-2)
+
+main: () void:
+	@ [+stdout]:
+		stdout.write("fib(39) = " + fib(39) + "\n")
+
+	@ [+stdout]:
+		stdout.write("fib(40) = " + fib(40) + "\n")
+
+	@ [+stdout]:
+		stdout.write("fib(41) = " + fib(41) + "\n")

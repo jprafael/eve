@@ -1,0 +1,41 @@
+import io.stdout
+import io.socket
+import io.server_socket
+import io.readable
+import io.listening
+import io.connection
+import io.closed
+import util.set
+import util.iterator
+
+main: () void:
+	clients: set<socket@>@
+
+	server_socket.listen(8080):
+		start = [] (s: listening&) bool:
+			stdout.write("Listening on port 8080\n")
+			return true
+
+		conn = [+clients] (c: connection&) bool:
+			client: socket@ = c()
+			clients.insert(client)
+
+			on client readable = [-client, clients] (r: readable&) bool:
+				buffer: vector<char>@(1024)
+
+				client.read_buffer(buffer)
+
+				it: iterator<socket@>
+				for (it = clients.begin(); it != clients.end(); ++it):
+					c: socket@ = *it
+					@ [+c, buffer]:
+						c.write_buffer(buffer)
+
+				return true
+
+			on client closed = [-client, +clients] (r: closed&) bool:
+				clients.erase(client)
+				return true
+
+			client.rearm()
+			return true

@@ -1,0 +1,19 @@
+import io.stdout
+import shutdown.shutdown
+
+fib: (n: int<32>) int<32>:
+	if n < 2:
+		return n
+		
+	a: int<32>@
+	b: int<32>@
+
+	finish:
+		@[+a, &n]: a = fib(n - 1)
+		@[+b, &n]: b = fib(n - 2)
+	
+	return a + b
+
+main: [+stdout] () void:
+	stdout.write("fib(35) = " + fib(35) + "\n")
+	shutdown()

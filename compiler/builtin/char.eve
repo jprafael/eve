@@ -1,0 +1,15 @@
+builtin type char:
+	builtin constructor: (self, other: char):
+		pass
+
+	builtin =: (self, other: char) char:
+		pass
+
+	builtin +: (self, other: char) char:
+		pass
+
+	builtin -: (self, other: char) char:
+		pass
+
+	builtin *: (self, other: char) char:
+		pass

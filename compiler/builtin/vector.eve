@@ -1,0 +1,21 @@
+builtin type vector <type V>:
+	builtin constructor: (self):
+		pass
+
+	builtin constructor: (self, size: int<32>):
+		pass
+
+	builtin resize: (self, size: int<32>) void:
+		pass
+
+	builtin size: (self) int<32>:
+		pass
+
+	builtin []: (self, pos: int<32>) V:
+		pass
+
+	builtin push_back: (self, value: V) void:
+		pass
+
+builtin append: (a: vector<char>, b: vector<char>) void:
+	pass

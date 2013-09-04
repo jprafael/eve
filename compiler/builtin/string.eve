@@ -1,0 +1,18 @@
+builtin type string:
+	# constant constructor
+	builtin constructor: (self, other: string):
+		pass
+
+	# conversions
+	builtin constructor: <var B> (self, other: int<B>):
+		pass
+
+	builtin constructor: <var B> (self, other: float<B>):
+		pass
+
+	# operators
+	builtin =: (self, other: string) string:
+		pass
+
+	builtin +: (self, other: string) string:
+		pass

@@ -1,0 +1,25 @@
+import io.stdout
+import shutdown.shutdown
+
+fib_seq: (n: int<32>) int<64>:
+	if n < 2:
+		return n
+
+	return fib_seq(n-1) + fib_seq(n-2)
+
+fib: (n: int<32>) int<64>:
+	if n < 15:
+		return fib_seq(n)
+		
+	a: int<64>@
+	b: int<64>
+
+	finish:
+		@[+a, =n]: a = fib(n - 2)
+		b = fib(n - 1)
+	
+	return a + b
+
+main: [+stdout] () void:
+	stdout.write("fib(40) = " + fib(40) + "\n")
+	shutdown()

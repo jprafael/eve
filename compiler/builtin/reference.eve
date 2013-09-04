@@ -1,0 +1,12 @@
+builtin type reference<type T>(T):
+	builtin constructor: (self, value: T):
+		pass
+
+	builtin constructor: (self, ptr: reference<T>):
+		pass
+
+	builtin =: (self, ptr: reference<T>) reference<T>:
+		pass
+
+	builtin =: (self, value: T) reference<T>:
+		pass

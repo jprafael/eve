@@ -1,0 +1,11 @@
+builtin type shared<type T>(T):
+	# copy constructor
+	builtin constructor: (self, value: T):
+		pass
+
+	# copy pointers (points to the same object)
+	builtin constructor: (self, ptr: shared<T>):
+		pass
+
+	builtin =: (self, ptr: shared<T>) shared<T>:
+		pass

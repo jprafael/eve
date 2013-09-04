@@ -1,0 +1,40 @@
+import io.socket
+import io.server_socket
+import io.connection
+import io.listening
+import io.stdout
+
+counter : int<32>@ = 0
+
+loop: (client: socket@) void:
+	op : bool@
+
+	client.read(op):
+		cb = [op, -client] (ok : bool) void:
+			if ok:
+				if op: # increment
+					@ [+client, +counter]:
+						counter += 1
+						client.write(counter):
+							cb = [+client] (ok : bool) void: loop(client)
+
+				else: # just read
+					@ [+client, counter]:
+						client.write(counter):
+							cb = [+client] (ok : bool) void: loop(client)
+
+			else:
+				client.close()
+
+main: () void:
+
+	server_socket.listen("8080"):
+		start = [+stdout] (s: listening&) bool:
+			stdout.write("Listening on port 8080\n")
+			return true
+
+		conn = [] (c: connection&) bool:
+			client : socket@ = c()
+			loop(client)
+
+			return true

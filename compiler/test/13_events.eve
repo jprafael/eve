@@ -1,0 +1,10 @@
+import io.stdout
+import shutdown.shutdown
+import util.timer
+
+main: () void:
+
+	timer.make(timer.timeout(5, 0)):
+		tick = [+stdout] () void:
+			stdout.write("5 seconds have passed\n")
+			shutdown()

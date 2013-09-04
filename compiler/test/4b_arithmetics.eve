@@ -1,0 +1,10 @@
+import io.stdout
+
+main: [+stdout] ():
+	a: int = 2
+	b: int = 3
+
+	c: int = b + a * b
+	d: float = (c * 1.0) / a ** 2
+
+	stdout.write(string(d))

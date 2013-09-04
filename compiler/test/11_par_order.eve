@@ -1,0 +1,9 @@
+import io.stdout
+
+main: [+stdout] ():
+	stdout.write("This comes first\n")
+	
+	@[+stdout]:
+		stdout.write("This last\n")
+	
+	stdout.write("This one second\n")

@@ -1,0 +1,72 @@
+builtin type fd:
+	# constructor
+	builtin constructor: (self, f: int<32>):
+		pass
+
+	builtin valid: (self) bool:
+		pass
+
+	builtin close: (self) void:
+		pass
+
+	builtin read: <type K> (self, data: K@, cb: <(bool) void>@) void:
+		pass
+
+	builtin write: <type K>(self, data: K) void:
+		pass
+
+	builtin write: <type K>(self, data: K, cb: <(bool) void>@) void:
+		pass
+
+	builtin close: (self, emit: bool) void:
+		pass
+
+	builtin pipe: (self, other: fd) void:
+		pass
+
+	# protected
+	builtin read_buffer: (self, buffer: vector<char>) void:
+		pass
+
+	builtin write_buffer: (self, buffer: vector<char>) void:
+		pass
+
+	builtin rearm: (self) void:
+		pass
+
+builtin type socket(fd):
+	builtin constructor: (self, f: int<32>):
+		pass
+
+builtin type server_socket(socket):
+	builtin constructor: (self):
+		pass
+
+	builtin constructor: (self, f: int<32>):
+		pass
+
+	builtin listen: (port: string, start: <(listening&) bool>@, conn: <(connection&) bool>@) server_socket@:
+		pass
+
+# events
+builtin type closed:
+	builtin constructor: (self):
+		pass
+
+builtin type readable:
+	builtin constructor: (self):
+		pass
+
+builtin type listening:
+	builtin constructor: (self):
+		pass
+
+builtin type connection:
+	builtin constructor: (self, s: socket@):
+		pass
+
+	builtin () : (self) socket@:
+		pass
+
+builtin stdin : fd@
+builtin stdout : fd@

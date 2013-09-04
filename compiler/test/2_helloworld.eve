@@ -1,0 +1,4 @@
+import io.stdout
+
+main: [+stdout] () void:
+	stdout.write("Hello World\n")

@@ -1,0 +1,2 @@
+builtin md5<type V>(buffer: vector<V>) string:
+	pass

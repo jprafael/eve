@@ -1,0 +1,9 @@
+import io.stdout
+
+main: [+stdout] () void:
+	a: int<32> = 1
+	b: int<32> = 2
+	c: int<32> = a + b + 1
+	d: int<32> = a * c
+
+	stdout.write(string(d) + "\n")

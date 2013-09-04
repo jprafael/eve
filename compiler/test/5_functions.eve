@@ -1,0 +1,7 @@
+import io.stdout
+
+hw: () string:
+	return "Hello World\n"
+
+main: [+stdout] () void:
+	stdout.write(hw())

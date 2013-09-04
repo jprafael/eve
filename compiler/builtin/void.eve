@@ -1,0 +1,4 @@
+builtin type void:
+	# should be an empty list actually, so we add an empty constructor
+	builtin constructor: (self):
+		pass
